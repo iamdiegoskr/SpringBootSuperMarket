@@ -17,6 +17,14 @@ public class BuyProductsEntity { //Clase intermetida, con clave primaria compues
     @Column(name = "estado")
     private Boolean status;
 
+    @ManyToOne
+    @JoinColumn(name = "id_compra",insertable = false,updatable = false)
+    private BuyEntity buy;
+
+    @ManyToOne
+    @JoinColumn(name="id_producto",insertable = false,updatable = false)
+    private ProductEntity product;
+
     public BuyProductsPK getId() {
         return id;
     }

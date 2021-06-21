@@ -2,6 +2,7 @@ package com.platzimarket.persistence.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "compras")
@@ -26,6 +27,14 @@ public class BuyEntity {//Compra
 
     @Column(name="estado")
     private String status;
+
+    @ManyToOne //Muchas compras pueden ser realizadas por un cliente.
+    @JoinColumn(name = "id_cliente", insertable = false,updatable = false)
+    private ClientEntity client;
+
+    //Lista de productos que pertenecen a una compra
+    @OneToMany(mappedBy = "product")
+    private List<BuyProductsEntity> products;
 
     public Integer getIdBuy() {
         return idBuy;

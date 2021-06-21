@@ -1,6 +1,7 @@
 package com.platzimarket.persistence.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "categorias")
@@ -16,6 +17,9 @@ public class CategoryEntity { //Categoria
 
     @Column(name = "estado")
     private Boolean status;
+
+    @OneToMany(mappedBy = "category") //Una categoria puede tener muchos productos.
+    private List<ProductEntity> products;
 
     public Integer getIdCategory() {
         return idCategory;

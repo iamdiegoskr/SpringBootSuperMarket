@@ -29,6 +29,10 @@ public class ProductEntity {//Producto
     @Column(name = "estado")
     private Boolean status;
 
+    @ManyToOne //Muchos a uno, muchos productos pueden pertenecer a una categoria
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    private CategoryEntity category;
+
     public Integer getIdProduct() {
         return idProduct;
     }
