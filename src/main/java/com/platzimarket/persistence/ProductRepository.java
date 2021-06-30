@@ -28,9 +28,9 @@ public class ProductRepository implements IProductRepository {
     }
 
     @Override
-    public List<Product> getProductsByCategory(int categoryId) {
-        List<ProductEntity> productsByCategory = productCrudRepository.findByIdCategoryOrderByNameAsc(categoryId);
-        return mapper.toProducts(productsByCategory);
+    public Optional<List<Product>> getProductsByCategory(int categoryId) {
+        return productCrudRepository.findByIdCategoryOrderByNameAsc(categoryId)
+                .map(products->mapper.toProducts(products));
     }
 
     @Override

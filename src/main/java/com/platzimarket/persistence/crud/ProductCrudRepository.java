@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface ProductCrudRepository extends CrudRepository<ProductEntity,Integer> {
 
     // get list products by category Query Methods
-    List<ProductEntity> findByIdCategoryOrderByNameAsc(int idCategoria);
+    Optional<List<ProductEntity>> findByIdCategoryOrderByNameAsc(int idCategoria);
 
     //get scarce products
     Optional<List<ProductEntity>> findByQuantityStockLessThanAndStatus(int quantityStock,boolean status);

@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface IProductRepository {
 
     List<Product> getAllProducts();
-    List<Product> getProductsByCategory(int categoryId);
+    Optional<List<Product>> getProductsByCategory(int categoryId);
     Optional<List<Product>> getScarceProducts(int quantity);
     Optional<List<Product>> getAbundantProducts(int quantity);
     List<Product> getExpensiveProducts(double price);

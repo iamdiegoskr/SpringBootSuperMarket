@@ -22,7 +22,7 @@ public class ProductService {
         return repository.getProduct(productId);
     }
 
-    public List<Product> getByCategory(int categoryId){
+    public Optional<List<Product>> getByCategory(int categoryId){
         return repository.getProductsByCategory(categoryId);
     }
 
