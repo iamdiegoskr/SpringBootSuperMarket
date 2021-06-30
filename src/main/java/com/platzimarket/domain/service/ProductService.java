@@ -30,7 +30,7 @@ public class ProductService {
         return repository.saveProduct(product);
     }
 
-    public boolean deleteProduct(int productId){
+    public boolean removeProduct(int productId){
         return getProduct(productId).map(product ->{
             repository.removeProduct(productId);
             return true;

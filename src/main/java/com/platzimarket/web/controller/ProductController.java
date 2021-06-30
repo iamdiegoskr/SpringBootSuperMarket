@@ -3,10 +3,7 @@ package com.platzimarket.web.controller;
 import com.platzimarket.domain.models.Product;
 import com.platzimarket.domain.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,17 +25,19 @@ public class ProductController {
         return service.getProduct(productId);
     }
 
-    public List<Product> getByCategory(int categoryId){
+    @GetMapping("/category/{categoryId}")
+    public List<Product> getByCategory(@PathVariable() int categoryId){
         return  service.getByCategory(categoryId);
     }
 
-
-    public Product saveProduct(Product product){
+    @PostMapping()
+    public Product saveProduct(@RequestBody Product product){
         return service.save(product);
     }
 
-    public boolean deleteProduct(int productId){
-        return service.deleteProduct(productId);
+    @DeleteMapping("/delete/{id}")
+    public boolean removeProduct(@PathVariable() int id){
+        return service.removeProduct(id);
     }
 
 }
