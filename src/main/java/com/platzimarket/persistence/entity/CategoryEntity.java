@@ -44,4 +44,12 @@ public class CategoryEntity { //Categoria
     public void setStatus(Boolean status) {
         this.status = status;
     }
+
+    public List<ProductEntity> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<ProductEntity> products) {
+        this.products = products;
+    }
 }

@@ -1,6 +1,5 @@
 package com.platzimarket.domain.models;
 
-import com.platzimarket.domain.models.Category;
 
 public class Product {
 

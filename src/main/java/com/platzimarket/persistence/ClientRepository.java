@@ -21,9 +21,5 @@ public class ClientRepository {
         return clientCrudRepository.findByNameContainingAndLastnameContaining(name,lastname);
     }
 
-    public boolean existClient(String dni){
-        return clientCrudRepository.existByIdClient(dni);
-    }
-
 
 }

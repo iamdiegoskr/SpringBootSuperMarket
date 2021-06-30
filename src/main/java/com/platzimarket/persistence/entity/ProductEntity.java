@@ -88,4 +88,12 @@ public class ProductEntity {//Producto
     public void setStatus(Boolean status) {
         this.status = status;
     }
+
+    public CategoryEntity getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryEntity category) {
+        this.category = category;
+    }
 }

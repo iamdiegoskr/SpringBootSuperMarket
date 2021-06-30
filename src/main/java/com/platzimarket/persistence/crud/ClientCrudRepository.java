@@ -16,6 +16,5 @@ public interface ClientCrudRepository extends CrudRepository<ClientEntity,String
 
     List<ClientEntity> findByNameContainingAndLastnameContaining(String name,String lastname);
 
-    boolean existByIdClient(String idClient);
 
 }

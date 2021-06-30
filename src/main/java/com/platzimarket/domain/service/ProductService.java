@@ -12,40 +12,30 @@ import java.util.Optional;
 public class ProductService {
 
     @Autowired
-    private IProductRepository repo;
+    private IProductRepository repository;
 
     public List<Product> getAll(){
-        return repo.getAllProducts();
+        return repository.getAllProducts();
     }
 
     public Optional<Product> getProduct(int productId){
-        return repo.getProduct(productId);
+        return repository.getProduct(productId);
     }
 
     public List<Product> getByCategory(int categoryId){
-        return  repo.getProductsByCategory(categoryId);
+        return repository.getProductsByCategory(categoryId);
     }
 
-    public Product saveProduct(Product product){
-        return  repo.saveProduct(product);
+    public Product save(Product product){
+        return repository.saveProduct(product);
     }
 
     public boolean deleteProduct(int productId){
-        /*if(getProduct(productId).isPresent()){
-            repo.removeProduct(productId);
-            return true;
-        }else{
-            return false;
-        }*/
-
         return getProduct(productId).map(product ->{
-            repo.removeProduct(productId);
+            repository.removeProduct(productId);
             return true;
         }).orElse(false);
-
     }
-
-
 
 
 
