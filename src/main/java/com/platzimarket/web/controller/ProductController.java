@@ -43,6 +43,10 @@ public class ProductController {
 
     @GetMapping("/category/{categoryId}")
     @ApiOperation("ger products by category")
+    @ApiResponses({
+            @ApiResponse(code = 200,message = "OK"),
+            @ApiResponse(code = 404, message = "This category not has products")
+    })
     public ResponseEntity<List<Product>> getByCategory(@PathVariable() int categoryId){
         return  service.getByCategory(categoryId)
                 .map(products-> new ResponseEntity<>(products,HttpStatus.OK))
@@ -51,12 +55,17 @@ public class ProductController {
 
     @PostMapping()
     @ApiOperation("Create a new product from supermarket")
+    @ApiResponse(code = 201, message = "Product created")
     public ResponseEntity<Product> saveProduct(@RequestBody Product product){
         return new ResponseEntity<>(service.save(product), HttpStatus.CREATED);
     }
 
     @ApiOperation("Delete a product by id")
     @DeleteMapping("/{id}")
+    @ApiResponses({
+            @ApiResponse(code = 200,message = "Product delete"),
+            @ApiResponse(code = 404, message = "Product to remove not found")
+    })
     public ResponseEntity removeProduct(@PathVariable() int id){
         if(service.removeProduct(id)){
             return new ResponseEntity<>(HttpStatus.OK);
