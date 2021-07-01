@@ -17,6 +17,7 @@ public class PurchaseRepository implements IPurchaseRepository {
     @Autowired
     private BuyCrudRepository repository;
 
+    @Autowired
     private PurchaseMapper mapper;
 
     @Override
