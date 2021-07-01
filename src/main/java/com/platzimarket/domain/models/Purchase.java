@@ -3,7 +3,7 @@ package com.platzimarket.domain.models;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class Purchase {
+public class Purchase { //Buy
 
     private int purchaseId;
     private String clientId;

@@ -1,6 +1,6 @@
 package com.platzimarket.domain.models;
 
-public class PurchaseItem {
+public class PurchaseItem { //BuyProduct
     private int productId;
     private int quantity;
     private double total;

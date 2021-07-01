@@ -14,7 +14,7 @@ public class BuyEntity {//Compra
     private Integer idBuy;
 
     @Column(name = "id_cliente")
-    private Integer idClient;
+    private String idClient;
 
     @Column(name = "fecha")
     private LocalDateTime date;
@@ -33,7 +33,7 @@ public class BuyEntity {//Compra
     private ClientEntity client;
 
     //Lista de productos que pertenecen a una compra
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "buy", cascade = {CascadeType.ALL})
     private List<BuyProductsEntity> products;
 
     public Integer getIdBuy() {
@@ -44,11 +44,11 @@ public class BuyEntity {//Compra
         this.idBuy = idBuy;
     }
 
-    public Integer getIdClient() {
+    public String getIdClient() {
         return idClient;
     }
 
-    public void setIdClient(Integer idClient) {
+    public void setIdClient(String idClient) {
         this.idClient = idClient;
     }
 
@@ -82,5 +82,21 @@ public class BuyEntity {//Compra
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public ClientEntity getClient() {
+        return client;
+    }
+
+    public void setClient(ClientEntity client) {
+        this.client = client;
+    }
+
+    public List<BuyProductsEntity> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<BuyProductsEntity> products) {
+        this.products = products;
     }
 }

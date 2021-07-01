@@ -18,6 +18,7 @@ public class BuyProductsEntity { //Clase intermetida, con clave primaria compues
     private Boolean status;
 
     @ManyToOne
+    @MapsId("idBuy")
     @JoinColumn(name = "id_compra",insertable = false,updatable = false)
     private BuyEntity buy;
 
@@ -55,5 +56,21 @@ public class BuyProductsEntity { //Clase intermetida, con clave primaria compues
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public BuyEntity getBuy() {
+        return buy;
+    }
+
+    public void setBuy(BuyEntity buy) {
+        this.buy = buy;
+    }
+
+    public ProductEntity getProduct() {
+        return product;
+    }
+
+    public void setProduct(ProductEntity product) {
+        this.product = product;
     }
 }
